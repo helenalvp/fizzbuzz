@@ -36,6 +36,10 @@ h1,h2,h3,h4,h5,h6{
     color: red;
     font-weight: 500;
 }
+.fancy-font{
+    font-family: 'Permanent Marker', cursive;
+    color: #0cb4ca;
+}
 main>.container {
     padding: 60px 15px 0;
     margin-bottom: 5rem;
