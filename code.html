@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A coding Project by Helena Vaquera</title>
+    <title>FizzBuzz: A coding Project by Helena Vaquera</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -34,16 +34,16 @@
                         <a class="nav-link"  href="index.html"> Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="app.html">The App</a>
+                        <a class="nav-link" href="app.html">The App</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="code.html">The Code</a>
+                        <a class="nav-link  active" aria-current="page" href="code.html">The Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                        <a class="nav-link" target="_blank" href="https://github.com/helenalvp/fizzbuzz">Git Repo</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="helenalvp.com">About</a>
+                        <a class="nav-link" target="_blank" href="https://helenalvp.com/">About</a>
                     </li>
                 </ul>
             </div>
@@ -53,30 +53,103 @@
     <!-- ======= Main Section ======== -->
     <main class="flex-shrink-0">
       
-        <div class="container py-4 px-5 pt-5 mt-lg-5">  
-            <h2 class="title border-1 border-bottom border-dark">The Code</h2>
+        <div class="container-fluid py-4 px-5 pt-5 mt-lg-5">  
+            <h2 class="title border-1 border-bottom border-dark">The Code for FizzBuzz</h2>
             <div class="row row-cols-1 row cols-lg-2 ">
                 <div class="col-lg-8">
                     <pre class="line-numbers">
                         <code class="language-javascript">
-                            //Call Hello World
-                            function helloWorld(){
-                                alert("Hello World")
+                            function getValues(){
+                                let fizzValue = document.getElementById("fizzValue").value;
+                                let buzzValue = document.getElementById("buzzValue").value;
+                            
+                                fizzValue = parseInt(fizzValue)
+                                buzzValue = parseInt(buzzValue)
+                            
+                                if(Number.isInteger(fizzValue) && Number.isInteger(buzzValue)){
+                                    let values = generateValues(fizzValue, buzzValue)
+                                    displayValues(values)
+                                } else{
+                                    alert("Please Enter Integers")
+                                }
+                            }
+                            
+                            function generateValues(fizz, buzz){
+                                let returnArray = []
+                            
+                                for(let i = 1; i <=100 ; i++){
+                            
+                                    let value = ((i % fizz == 0 ? "Fizz": "") + (i % buzz == 0 ? 'Buzz' : "") || i)
+                                    returnArray.push(value)
+                                }
+                                return  returnArray
+                            }
+                            
+                            function displayValues(valArr){
+                            
+                                let tableBody = document.getElementById("results");
+                                let templateRow = document.getElementById("fizzBuzzTemplate");
+                            
+                                tableBody.innerHTML ="";
+                            
+                                for(let i = 0; i < valArr.length; i+= 5){
+                            
+                                    let tableRow = document.importNode(templateRow.content, true)
+                                    let rowCols = tableRow.querySelectorAll("td");
+                                    
+                                    rowCols[0].classList.add(valArr[i])
+                                    rowCols[0].textContent = valArr[i]
+                            
+                                    rowCols[1].classList.add(valArr[i+1])
+                                    rowCols[1].textContent = valArr[i+1]
+                            
+                                    rowCols[2].classList.add(valArr[i+2])
+                                    rowCols[2].textContent = valArr[i+2]
+                            
+                                    rowCols[3].classList.add(valArr[i+3])
+                                    rowCols[3].textContent = valArr[i+3]
+                            
+                                    rowCols[4].classList.add(valArr[i+4])
+                                    rowCols[4].textContent = valArr[i+4]
+                            
+                                    tableBody.appendChild(tableRow)
+                                }
                             }
 
                         </code>
                     </pre>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 mt-3">
                     <p>
-                        This code alerts you in the browser
+                        This code prints the numbers from 1 to 100 and uses your fizz and buzz values to change their multiples to <strong>"Fizz"</strong>, <strong>"Buzz"</strong>, or <strong>"FizzBuzz"</strong> (if both are a multiple of the same integer)
                     </p>
-                    <h5>
-                        helloWorld
-                    </h5>
-                    <p>
-                        helloWorld is a function that displays an alert 
-                    </p>
+                    <div class="pb-lg-5">
+                        <h5>
+                            getValues
+                        </h5>
+                        <p>
+                            <span class="func-font">getValues</span> is a function that gets the user's input from the DOM and changes it to a number. If the values are not numbers, it will prompt the user to input numbers.
+                        </p>  
+                    </div>
+                    
+                    <div class="mt-lg-5 py-lg-2">
+                        <h5>
+                            generateValues
+                        </h5>
+                        <p>
+                            <span class="func-font">generateValues</span> is a function that loops through numbers 1 and 100. If a number is a multiple of the user's fizz value, it will be changed to <span class="Fizz">"Fizz"</span>.
+                             If the number is a multiple of the user's buzz value, it will be changed to <span class="Buzz">"Buzz"</span>. If it's a multiple of both fizz and buzz, it will display the value <span class="FizzBuzz">"FizzBuzz"</span>. Otherwise, it will display the number.
+                        </p>  
+                    </div>
+                    <div class="mt-lg-5 py-lg-5">
+                        <h5>
+                            displayValues
+                        </h5>
+                        <p>
+                            <span class="func-font">displayValues</span> is a function that displays the new FizzBuzz array from <span class="func-font">generateValues</span> and adds it to the DOM, using a template that sets five values in a row. 
+                            It also adds the value of the item in the class, to help shape the css and make the <span class="Fizz">"Fizz"</span>, <span class="Buzz">"Buzz"</span>, and <span class="FizzBuzz">"FizzBuzz"</span> stand out from the numbers.
+                        </p> 
+                    </div>
                 </div>
             </div>
         </div>

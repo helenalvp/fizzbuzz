@@ -1,6 +1,6 @@
 :root{
-    --primary-color: #1d5888;
-    --secondary-color: #c9bd1e;
+    --primary-color: #0c75ca;
+    --secondary-color: #c9241e;
     --dark-color: #292929;
     --white-color: #e7e7e7
 }
@@ -21,6 +21,21 @@ h1,h2,h3,h4,h5,h6{
     color: var(--primary-color)
 }
 
+
+.Fizz{
+    color: blue;
+}
+.Buzz{
+    color: rgb(20, 187, 20);
+}
+.FizzBuzz{
+    color: red;
+    font-weight: bolder;
+}
+.func-font{
+    color: red;
+    font-weight: 500;
+}
 main>.container {
     padding: 60px 15px 0;
     margin-bottom: 5rem;
