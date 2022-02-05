@@ -56,7 +56,10 @@ A mini-site for a fizz buzz coding question.
 
 ## Contact
 
-Helena L. Vaquera - [@helenalvp](https://twitter.com/helenalvp) - helenalvp@gmail.com - [helenalvp.com](https://helenalvp.com)
+Helena L. Vaquera 
+  Twitter: [@helenalvp](https://twitter.com/helenalvp) 
+  Email: helenalvp@gmail.com 
+  Portfolio: [helenalvp.com](https://helenalvp.com)
 
 Project Link: [https://github.com/helenalvp/fizzbuzz](https://github.com/helenalvp/fizzbuzz)
 
